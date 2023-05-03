@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    var dateFormatter: DateFormatter {
+        var dateFormatter: DateFormatter {
             let formatter = DateFormatter()
-        formatter.timeStyle = .medium
+            formatter.timeStyle = .medium
             return formatter
         }
     
@@ -87,7 +86,7 @@ struct ContentView: View {
         let minutes = components.minute ?? 0
         let seconds = components.second ?? 0
         
-        topLightSeconds = seconds % 2 != 0
+        topLightSeconds = seconds % 2 == 0
         SecondsLamp(isOn: topLightSeconds)
         
         fiveHoursLight = hours / 5
@@ -207,7 +206,6 @@ struct CustomColor {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-            .environment(\.locale, Locale(identifier: "ru_RU"))
+        ContentView().environment(\.locale, Locale(identifier: "ru_RU"))
     }
 }
